@@ -35,10 +35,6 @@ if ($install) {
         print STDERR "disabling\n";        
         system("rm /var/scripts/debug.perl");
 
-        if (-e "/Library/Preferences/DirectoryService/.DSLogDebugAtStart") {
-            system("rm /Library/Preferences/DirectoryService/.DSLogDebugAtStart");    
-            system("killall DirectoryService");
-        }
         if (-e "/Library/LaunchDaemons/com.twocanoes.debug.plist") {
             system("launchctl unload -w /Library/LaunchDaemons/com.twocanoes.debug.plist");
             system("rm /Library/LaunchDaemons/com.twocanoes.debug.plist");    
@@ -121,13 +117,7 @@ if ($ds) {
 }
 else {
     print "DS Debugging requested to be turned off\n";
-    system("/usr/bin/odutil set log debug");
-#    if (-e "/Library/Preferences/DirectoryService/.DSLogDebugAtStart") {
-#        print "turning off DS Debugging\n";
-##        system("rm /Library/Preferences/DirectoryService/.DSLogDebugAtStart");
-##        system("killall -USR1 DirectoryService");
-#    }
-#    else { print "DS Debugging was already off\n"; }
+    system("/usr/bin/odutil set log default");
     
 }
 
