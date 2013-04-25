@@ -54,7 +54,9 @@ if ($install) {
             system("launchctl remove com.twocanoes.tcpdump");
         }
             
-        
+        print "setting opendirectoryd logging level back to default \n";
+		system("/usr/bin/odutil set log default");
+		
         exit 0;
     }
     print "installing\n";
@@ -111,12 +113,12 @@ HERE
 }
 
 if ($ds) {
-    print "DS Debugging requested to be turned on\n";
+    print "opendirectoryd debugging requested to be turned on\n";
 
-    system("/usr/bin/odutil set log default");
+    system("/usr/bin/odutil set log debug");
 }
 else {
-    print "DS Debugging requested to be turned off\n";
+    print "opendirectoryd debugging requested to be turned off\n";
     system("/usr/bin/odutil set log default");
     
 }
