@@ -8,7 +8,7 @@ Debug is a System Preference Pane that allows you to easily figure out complex e
 
 Here is what it looks like:
 
-(/screenshots/screenshot.png)
+![screenshot](/screenshots/screenshot.png)
 
 tim perfitt
 (http://twocanoes.com)
